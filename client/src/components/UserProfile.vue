@@ -253,7 +253,8 @@ const goToPoster = () => router.push('/');
   box-shadow: 0 5px 15px rgba(0,0,0,0.1); 
   border: 2px solid #5c0017; 
   position: sticky; 
-  top: 20px; 
+  top: 20px;
+  box-sizing: border-box; 
 }
 .avatar-placeholder { 
   width: 100px; 
@@ -272,7 +273,7 @@ h2 {
   color: rgb(181, 38, 38); 
   font-family: 'Georgia', serif; 
   margin-bottom: 5px; 
-  font-size: 1.5rem; 
+  font-size: clamp(1.1rem, 4vw, 1.5rem); 
 }
 .email { 
   color: #5c0017;
@@ -409,6 +410,7 @@ h2 {
   box-shadow: 0 5px 15px rgba(0,0,0,0.1); 
   border: 1px solid  rgba(247, 226, 173, 0.955); 
   position: relative; 
+  min-height: 180px;
 }
 .active-card::before { 
   content: ''; 
@@ -421,7 +423,7 @@ h2 {
 .ticket-image img { 
   width: 130px; 
   height: 100%; 
-  object-fit: cover; 
+  object-fit: contain; 
   margin-left: 0;
 }
 .ticket-info { 
@@ -535,8 +537,7 @@ h2 {
 @media (max-width: 900px) {
   .profile-page {
     flex-direction: column; 
-    padding: 10px;
-    margin-top: 20px;
+    padding: 15px;
   }
 
   .sidebar {
@@ -552,15 +553,11 @@ h2 {
   }
 
   .ticket-card {
-    flex-direction: column; 
-    align-items: stretch;
-    text-align: center;
+    flex-direction: row; 
   }
 
   .ticket-image img {
-    width: 100%; 
-    height: 200px;
-    object-fit: cover;
+    width: 100px;
   }
 
   .ticket-header {
@@ -581,18 +578,30 @@ h2 {
   }
 }
 
-@media (max-width: 480px) {
-  .recommendations-section h3 {
-    font-size: 1.3rem;
-    text-align: center;
+@media (max-width: 600px) {
+ .ticket-card {
+    flex-direction: column; 
+  }
+
+  .ticket-image {
+    width: 100%;
+    height: 250px; 
+    background: #5c0017; 
+  }
+
+  .ticket-image img {
+    width: auto;
+    height: 100%;
+    max-width: 100%;
+    object-fit: contain; 
+  }
+
+  .ticket-header h3 {
+    font-size: 1.2rem;
   }
 
   .rec-grid {
     grid-template-columns: 1fr 1fr; 
-  }
-
-  .logout-btn {
-    padding: 12px;
   }
 }
 </style>
