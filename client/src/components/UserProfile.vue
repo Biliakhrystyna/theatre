@@ -51,7 +51,7 @@ onMounted(async () => {
   }
   //Завантаження афіші для побудови рекомендацій
   try {
-    const response = await axios.get('http://localhost:3000/api/shows');
+    const response = await axios.get('http://https://theatre-n8rc.onrender.com:3000/api/shows');
     allShows.value = response.data;
   } catch (error) {
     console.error("Не вдалося завантажити афішу", error);

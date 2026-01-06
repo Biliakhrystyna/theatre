@@ -45,7 +45,7 @@ const prevImage = () => {
 onMounted(async () => {
   try {
     const showId = route.params.id;
-    const response = await axios.get(`http://localhost:3000/api/shows/${showId}`);
+    const response = await axios.get(`http://https://theatre-n8rc.onrender.com:3000/api/shows/${showId}`);
     show.value = response.data;
   } catch (error) {
     console.error('Помилка:', error);
