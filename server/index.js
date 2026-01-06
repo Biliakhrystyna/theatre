@@ -5,7 +5,7 @@ const cors = require('cors');
 const Show = require('./models/Show'); 
 const User = require('./models/User');
 const app = express();
-const PORT = process.env.PORT || 3000;
+
 
 app.use(cors());
 app.use(express.json());
@@ -276,7 +276,8 @@ app.post('/api/user/buy', async (req, res) => {
     res.status(500).json({ error: 'Помилка сервера' });
   }
 });
+const PORT = process.env.PORT || 5000; 
 
 app.listen(PORT, () => {
-  console.log(`Server running on http://localhost:${PORT}`);
+    console.log(`Server running on port ${PORT}`);
 });
