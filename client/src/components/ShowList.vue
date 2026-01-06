@@ -66,7 +66,7 @@ const filteredShows = computed(() => {
 
 <style scoped>
 .shows-container { 
-  padding: 20px 0; 
+  padding: 20px 15px; 
 }
 h2 { 
   text-align: center; 
@@ -79,6 +79,7 @@ h2 {
   border: 3px solid #5c0017; 
   background-color:rgba(247, 226, 173, 0.955) ; 
   padding: 10px 50px; 
+  max-width: 90%;
   width: fit-content;
 }
 .filters { 
@@ -191,4 +192,26 @@ h3 {
   margin-top: 30px; 
   color: #951d1d; 
   }
+  @media (max-width: 768px) {
+  h2 {
+    padding: 10px 20px; 
+    font-size: 1rem;
+  }
+  .grid {
+    gap: 20px; 
+  }
+}
+
+@media (max-width: 480px) {
+  .grid {
+    grid-template-columns: 1fr; 
+  }
+  .card {
+    max-width: 100%; 
+  }
+  .filter-btn {
+    padding: 6px 12px;
+    font-size: 0.85rem; 
+  }
+}
 </style>

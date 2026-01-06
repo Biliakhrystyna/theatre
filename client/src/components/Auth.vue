@@ -137,6 +137,7 @@ const submitAuth = async () => {
   justify-content: center; 
   align-items: center;
   min-height: 80vh; 
+  padding: 20px;
 }
 .auth-card {
   background: rgb(181, 38, 38);; 
@@ -146,7 +147,8 @@ const submitAuth = async () => {
   width: 100%; 
   max-width: 400px; 
   text-align: center;
-  border: 3px solid #5c0017; 
+  border: 3px solid #5c0017;
+  box-sizing: border-box; 
 }
 
 h1 {
@@ -215,4 +217,24 @@ h1 {
   margin-left: 5px;
 }
 .switch-text span:hover { color: rgba(247, 226, 173, 0.955); }
+@media (max-width: 480px) {
+  .auth-card {
+    padding: 25px 20px; 
+    border-radius: 10px;
+  }
+
+  h1 {
+    font-size: 1.6rem; 
+    margin-bottom: 20px;
+  }
+
+  .submit-btn {
+    padding: 12px; 
+    font-size: 1rem;
+  }
+
+  .form-group input {
+    padding: 10px; 
+  }
+}
 </style>

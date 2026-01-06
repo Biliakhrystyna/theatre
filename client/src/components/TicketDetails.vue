@@ -228,7 +228,7 @@ const processPayment = async () => {
     font-family: 'Century Schoolbook', serif;
     color: rgba(247, 226, 173, 0.955);
 }
-.details-wrapper { padding: 40px 0; }
+.details-wrapper { padding: 20px 15px; }
 .content-block { 
   max-width: 1000px; 
   margin: 0 auto; 
@@ -241,6 +241,8 @@ const processPayment = async () => {
 .image-section img { 
   width: 300px; 
   height: 420px; 
+  max-width: 100%; 
+  height: auto; 
   object-fit: cover; 
   border-radius: 10px; 
   box-shadow: 0 10px 20px rgba(176, 31, 31, 0.637); 
@@ -265,15 +267,17 @@ const processPayment = async () => {
   align-self: flex-start; 
 }
 h1 { 
-  font-size: 3rem; 
+  font-size: clamp(1.8rem, 5vw, 3rem); 
   margin: 0 0 10px; 
   font-family:'Century Schoolbook',serif; 
   color: rgba(247, 226, 173, 0.955); 
   background-color: #5c0017; 
-  padding: 5px 20px; 
+  padding: 10px 20px; 
   display: inline-block; 
   box-shadow: 0 5px 15px rgba(0,0,0,0.5); 
-  border-radius: 5px; 
+  border-radius: 5px;
+  max-width: 100%;
+  box-sizing: border-box; 
 }
 .price-from { 
   display: block; 
@@ -355,7 +359,7 @@ h1 {
 }
 .booking-section { 
   background: rgb(181, 38, 38); 
-  padding: 30px; 
+  padding: 30px 15px; 
   border-radius: 15px; 
   box-shadow: 0 5px 20px rgba(196, 62, 62, 0.05); 
 }
@@ -411,6 +415,8 @@ h2 {
   display: flex; 
   justify-content: space-between; 
   align-items: center; 
+  flex-wrap: wrap; 
+  gap: 20px;
 }
 .summary-info { 
   color: rgba(247, 226, 173, 0.955); 
@@ -443,4 +449,54 @@ h2 {
   font-size: 1.5rem; 
   margin-top: 50px; 
   }
+  @media (max-width: 850px) {
+  .details-container {
+    flex-direction: column; /* Картинка тепер зверху, текст знизу */
+    align-items: center;
+    gap: 20px;
+  }
+
+  .image-section img {
+    width: 100%;
+    max-width: 350px; /* На планшетах робимо картинку по центру */
+  }
+
+  .info-section {
+    align-items: center; /* Центруємо текст і кнопки на мобілці */
+    text-align: center;
+  }
+
+  .genre-badge {
+    align-self: center; /* Бейдж теж по центру */
+  }
+
+  .dates-list {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .booking-section {
+    padding: 20px 10px;
+  }
+
+  .summary {
+    flex-direction: column; /* На дуже маленьких екранах кнопка під ціною */
+    text-align: center;
+  }
+
+  .total {
+    margin: 10px 0;
+    display: block;
+  }
+
+  .confirm-btn {
+    width: 100%; /* Кнопка на весь екран для зручності */
+  }
+  
+  .description {
+    font-size: 1rem;
+    padding: 15px;
+  }
+}
 </style>

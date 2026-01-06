@@ -80,11 +80,14 @@ const toggleSeat = (seat) => {
 <style scoped>
 .hall-container { 
   background: #f3f3f3; 
-  padding: 30px; 
+  padding: 20px 5px; 
   border-radius: 10px; 
   text-align: center; 
   margin-top: 20px; 
   border: 1px solid #ccc; 
+  width: 100%;
+  box-sizing: border-box;
+  overflow: hidden;
 }
 .screen { 
   background: #5c0017; 
@@ -97,35 +100,43 @@ const toggleSeat = (seat) => {
   letter-spacing: 5px; 
   font-weight: bold; 
   box-shadow: 0 10px 10px rgba(0,0,0,0.2); 
+  font-size: clamp(0.7rem, 2vw, 1rem);
 }
 .row { 
   display: flex; 
   justify-content: center; 
   align-items: center; 
   margin-bottom: 10px; 
+  width: 100%;
 }
 .row-number { 
-  width: 60px; 
+  flex: 0 0 30px;
   font-weight: bold; 
   color: #5c0017; 
   text-align: right; 
-  margin-right: 15px; 
+  margin-right: 8px;
+  font-size: clamp(0.6rem, 2.5vw, 0.9rem);
 }
 .seats { 
   display: flex; 
-  gap: 8px; 
+  gap: 4px; 
+  justify-content: center;
+  flex: 1; 
+  max-width: 90%;
 }
 .seat { 
-  width: 35px; 
-  height: 35px; 
-  border-radius: 8px; 
+ flex: 0 1 35px; 
+  aspect-ratio: 1 / 1; 
+  min-width: 15px; 
+  
+  border-radius: 4px; 
   display: flex; 
   justify-content: center; 
   align-items: center; 
-  font-size: 0.8rem; 
+  font-size: clamp(0.5rem, 2vw, 0.8rem); 
   cursor: pointer; 
   transition: all 0.2s; 
-  user-select: none; 
+  user-select: none;
 }
 .seat.free { 
   background-color: white; 
@@ -157,6 +168,7 @@ const toggleSeat = (seat) => {
   display: flex; 
   justify-content: center; 
   gap: 20px; 
+  flex-wrap: wrap;
   margin-top: 30px; 
   padding-top: 20px; 
   border-top: 1px solid #6a1d1d; 
@@ -168,8 +180,7 @@ const toggleSeat = (seat) => {
   font-size: 0.9rem; 
 }
 .legend-item .seat { 
-  width: 20px; 
-  height: 20px; 
-  cursor: default; 
+  flex: 0 0 18px; 
+  height: 18px;
   }
 </style>

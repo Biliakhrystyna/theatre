@@ -241,7 +241,8 @@ const goToPoster = () => router.push('/');
   gap: 30px; 
   padding: 0 20px; 
   font-family: 'Georgia', serif; 
-  align-items: flex-start; 
+  align-items: flex-start;
+  box-sizing: border-box; 
 }
 .sidebar { 
   flex: 0 0 280px; 
@@ -326,8 +327,9 @@ h2 {
 .rec-img-wrapper { 
     position: relative; 
     width: 100%; 
-    height: 320px;
+    aspect-ratio: 2 / 3; 
     overflow: hidden;
+    border-radius: 8px;
 }
 .rec-subtitle { 
   margin: 5px 0 0; 
@@ -337,7 +339,7 @@ h2 {
 }
 .rec-grid { 
    display: grid;
-    grid-template-columns: repeat(2, 1fr); 
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); 
     gap: 15px; 
     margin-top: 15px; 
     width: 100%;
@@ -419,8 +421,8 @@ h2 {
 .ticket-image img { 
   width: 130px; 
   height: 100%; 
-  object-fit: contain; 
-  margin-left: 20px;
+  object-fit: cover; 
+  margin-left: 0;
 }
 .ticket-info { 
   flex: 1; 
@@ -543,44 +545,54 @@ h2 {
     position: static;
     margin-bottom: 20px;
   }
+
   .rec-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr); 
-    gap: 10px; 
-    margin: 15px 0;
+    grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); /* Менші картки на мобілці */
+    gap: 10px;
   }
-  .rec-img-wrapper {
-   width: 100%;
-   aspect-ratio: 2 / 3;  
-   overflow: hidden;
-  }
-  
-  .rec-info h4 {
-    font-size: 0.85rem; 
-    margin-bottom: 2px;
-  }
-  
-  .rec-genre-tag {
-    font-size: 0.6rem;
-    padding: 2px 5px;
-  }
+
   .ticket-card {
     flex-direction: column; 
-    align-items: center;
+    align-items: stretch;
     text-align: center;
   }
 
   .ticket-image img {
     width: 100%; 
-    height: 180px;
+    height: 200px;
     object-fit: cover;
-    margin-left: 0;
   }
 
   .ticket-header {
     flex-direction: column; 
     align-items: center;
-    gap: 5px;
+    gap: 10px;
+  }
+
+  .ticket-footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .price {
+    font-size: 1.2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .recommendations-section h3 {
+    font-size: 1.3rem;
+    text-align: center;
+  }
+
+  .rec-grid {
+    grid-template-columns: 1fr 1fr; 
+  }
+
+  .logout-btn {
+    padding: 12px;
   }
 }
 </style>
