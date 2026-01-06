@@ -44,7 +44,7 @@ onMounted(async () => {
   //Дані про виставу з бекенду по ID
   try {
     const showId = route.params.id;
-    const response = await axios.get(`http://https://theatre-n8rc.onrender.com:3000/api/shows/${showId}`);
+    const response = await axios.get(`https://theatre-n8rc.onrender.com/api/shows/${showId}`);
     show.value = response.data;
     if (show.value.schedule && show.value.schedule.length > 0) {
         selectedSessionIndex.value = 0;
@@ -117,7 +117,7 @@ const processPayment = async () => {
   };
 
   try {
-    const response = await axios.post('http://https://theatre-n8rc.onrender.com:3000/api/user/buy', {
+    const response = await axios.post('https://theatre-n8rc.onrender.com/api/user/buy', {
       email: user.value.email, ticket: ticketData,
       showId: show.value._id, date: currentSession.value.date,
       seatsToBlock: selectedSeats.value.map(s => `${s.row}-${s.number}`)

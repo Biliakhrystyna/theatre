@@ -20,8 +20,8 @@ const toggleAuth = () => {
 
 const submitAuth = async () => {
   const url = isLogin.value 
-    ? 'http://https://theatre-n8rc.onrender.com:3000/auth/login' 
-    : 'http://https://theatre-n8rc.onrender.com:3000/auth/register';
+    ? 'https://theatre-n8rc.onrender.com/auth/login' 
+    : 'https://theatre-n8rc.onrender.com/auth/register';
 
   try {
     const response = await axios.post(url, form.value);

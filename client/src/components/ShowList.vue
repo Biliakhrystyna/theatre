@@ -9,7 +9,7 @@ const genres = ['Всі', 'Трагедія', 'Комедія', 'Балет', '�
 onMounted(async () => {
   try {
     // Запит на сервер за списком вистав
-    const response = await axios.get('http://https://theatre-n8rc.onrender.com:3000/api/shows');
+    const response = await axios.get('https://theatre-n8rc.onrender.com/api/shows');
     shows.value = response.data;
   } catch (error) {
     console.error('Помилка завантаження:', error);
